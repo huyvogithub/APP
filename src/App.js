@@ -25,7 +25,7 @@ function App() {
           <div className="menu-line" />
           <div className="menu-line" />
         </div>
-        <h1 className="app-title">ỨNG DỤNG QUẢN LÝ BỆNH NHÂN CỦA HUY (BV)</h1>
+        <h1 className="app-title">ỨNG DỤNG QUẢN LÝ BỆNH NHÂN CỦA HUY</h1>
       </header>
       <main className={isMenuOpen ? "menu-open" : ""}>
         {currentPage === 'form' && (
