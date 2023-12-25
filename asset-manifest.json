@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/APP/static/css/main.d7d395cc.css",
-    "main.js": "/APP/static/js/main.2f30617b.js",
+    "main.css": "/APP/static/css/main.c245cabb.css",
+    "main.js": "/APP/static/js/main.ec02d409.js",
     "static/media/ytenenjpg.jpg": "/APP/static/media/ytenenjpg.2f1c1a06ab4a7fa4998b.jpg",
     "index.html": "/APP/index.html",
-    "main.d7d395cc.css.map": "/APP/static/css/main.d7d395cc.css.map",
-    "main.2f30617b.js.map": "/APP/static/js/main.2f30617b.js.map"
+    "main.c245cabb.css.map": "/APP/static/css/main.c245cabb.css.map",
+    "main.ec02d409.js.map": "/APP/static/js/main.ec02d409.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7d395cc.css",
-    "static/js/main.2f30617b.js"
+    "static/css/main.c245cabb.css",
+    "static/js/main.ec02d409.js"
   ]
 }
