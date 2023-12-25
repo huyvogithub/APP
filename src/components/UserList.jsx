@@ -8,6 +8,9 @@ const UserList = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [hoveredUser, setHoveredUser] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [searching, setSearching] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -51,11 +54,46 @@ const UserList = () => {
     setHoveredUser(null);
   };
 
+  const handleSearch = () => {
+    if (!searchTerm) {
+      alert('Vui lòng nhập tên bệnh nhân bạn muốn tìm');
+      return;
+    }
+
+    const results = Object.keys(userData).filter(username =>
+      userData[username]?.username && userData[username]?.username.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(results);
+    setSearching(true);
+  };
+
+  const handleCancelSearch = () => {
+    setSearchTerm('');
+    setSearchResults([]);
+    setSearching(false);
+  };
+
   return (
     <div style={{ fontFamily: 'Times New Roman' }}>
       <h2 style={{ fontSize: '2em', fontWeight: 'bold', fontFamily: 'Times New Roman' }}>DANH SÁCH NGƯỜI DÙNG</h2>
       <div style={{ marginBottom: '10px' }}>
-        <button onClick={handleRefresh} disabled={loading}>
+        <input
+          type="text"
+          placeholder="Tìm kiếm theo tên người dùng"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          style={{
+            marginRight: '10px',
+            padding: '8px 12px',
+            borderRadius: '8px',
+            border: '1px solid #ccc',
+            outline: 'none',
+            transition: 'all 0.3s ease',
+          }}
+        />
+        <button onClick={handleSearch}>Tìm kiếm</button>
+        {searching && <button onClick={handleCancelSearch} style={{ marginLeft: '10px', marginRight: '10px' }}>Hủy tìm kiếm</button>}
+        <button onClick={handleRefresh} style={{ marginLeft: '10px', marginRight: '10px' }} disabled={loading}>
           {loading ? 'Đang làm mới...' : 'Làm mới'}
         </button>
         <button onClick={toggleShowPassword} style={{ marginLeft: '10px' }}>
@@ -80,30 +118,57 @@ const UserList = () => {
         </div>
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px', marginTop: '10px' }}>
-          {Object.keys(userData).map((username, index) => (
-            <div
-              key={username}
-              style={{
-                border: '1px solid black',
-                padding: '10px',
-                cursor: 'pointer',
-                transform: hoveredUser === username ? 'scale(1.05)' : 'scale(1)',
-                transition: 'transform 0.3s ease',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-              }}
-              onClick={() => handleUserClick(username)}
-              onMouseEnter={() => handleUserHover(username)}
-              onMouseLeave={handleUserLeave}
-            >
-              <div style={{ width: '200px', height: '200px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <img src={userData[username]?.avatar || 'https://picsum.photos/50/50'} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          {searching ? (
+            searchResults.map((username, index) => (
+              <div
+                key={username}
+                style={{
+                  border: '1px solid black',
+                  padding: '10px',
+                  cursor: 'pointer',
+                  transform: hoveredUser === username ? 'scale(1.05)' : 'scale(1)',
+                  transition: 'transform 0.3s ease',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                }}
+                onClick={() => handleUserClick(username)}
+                onMouseEnter={() => handleUserHover(username)}
+                onMouseLeave={handleUserLeave}
+              >
+                <div style={{ width: '200px', height: '200px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                  <img src={userData[username]?.avatar || 'https://picsum.photos/50/50'} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <p style={{ fontSize: '1.5em', fontWeight: 'bold', fontFamily: 'Times New Roman', marginTop: '10px' }}>Bệnh nhân số: {index + 1}</p>
+                <p><strong style={{ fontSize: '1.2em', fontWeight: 'bold', fontFamily: 'Times New Roman' }}>Tên người dùng:</strong> {userData[username]?.username}</p>
               </div>
-              <p style={{ fontSize: '1.5em', fontWeight: 'bold', fontFamily: 'Times New Roman', marginTop: '10px' }}>Bệnh nhân số: {index + 1}</p>
-              <p><strong style={{ fontSize: '1.2em', fontWeight: 'bold', fontFamily: 'Times New Roman' }}>Tên người dùng:</strong> {userData[username]?.username}</p>
-            </div>
-          ))}
+            ))
+          ) : (
+            Object.keys(userData).map((username, index) => (
+              <div
+                key={username}
+                style={{
+                  border: '1px solid black',
+                  padding: '10px',
+                  cursor: 'pointer',
+                  transform: hoveredUser === username ? 'scale(1.05)' : 'scale(1)',
+                  transition: 'transform 0.3s ease',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                }}
+                onClick={() => handleUserClick(username)}
+                onMouseEnter={() => handleUserHover(username)}
+                onMouseLeave={handleUserLeave}
+              >
+                <div style={{ width: '200px', height: '200px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                  <img src={userData[username]?.avatar || 'https://picsum.photos/50/50'} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <p style={{ fontSize: '1.5em', fontWeight: 'bold', fontFamily: 'Times New Roman', marginTop: '10px' }}>Bệnh nhân số: {index + 1}</p>
+                <p><strong style={{ fontSize: '1.2em', fontWeight: 'bold', fontFamily: 'Times New Roman' }}>Tên người dùng:</strong> {userData[username]?.username}</p>
+              </div>
+            ))
+          )}
         </div>
       )}
     </div>

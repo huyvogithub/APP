@@ -44,7 +44,7 @@ const UserLogin = () => {
       );
 
       console.log('Kết quả từ server:', response.data);
-
+      alert('DỮ LIỆU ĐÃ ĐƯỢC LƯU LẠI CẢM ƠN  BẠN ĐÃ SỬ DỤNG');
       // Reset form sau khi submit thành công
       setFormData({});
       setSubmitCount(submitCount + 1);
