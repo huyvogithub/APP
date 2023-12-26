@@ -1,9 +1,15 @@
-.three-d-component-wrapper {
-    max-width: 40%; /* Đặt kích thước tối đa cho container */
-    height: 10%; 
-    margin: 0 auto; /* Canh giữa container trong trang */
-  }
-  canvas {
-    width: 50%;
-    height: 50%;
+/* SmallFrame.css */
+
+.small-frame {
+  border: 1px solid #ccc;
+  width: 30px; /* Kích thước của khung nhỏ */
+  height: 20px;
+  padding: 10px;
+  margin: 20px;
+}
+
+.iframe-content {
+  width: 50%;
+  height: 50%;
+  border: none;
 }

@@ -5,7 +5,7 @@ import Form from './components/Form';
 import UserList from './components/UserList';
 import ThreeDComponent from './components/ThreeDComponent';
 import SmallFrame from './components/SmallFrame';
-
+import GaussianGraph from './components/GaussianGraph';
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('form'); // Để xác định trang hiện tại
@@ -23,6 +23,7 @@ function App() {
     <div className="App">
       <header>
         <div className="menu-icon" onClick={toggleMenu}>
+          <div className="menu-line" />
           <div className="menu-line" />
           <div className="menu-line" />
           <div className="menu-line" />
@@ -45,7 +46,9 @@ function App() {
         {currentPage === 'userList2' && (
 
 
+
           <div className="user-list-container">
+            <GaussianGraph />
             <ThreeDComponent />
           </div>
 
@@ -59,15 +62,20 @@ function App() {
           </div>
 
         )}
-
+        {currentPage === 'CHART' && (
+          <div className="user-list-container">
+            <GaussianGraph />
+          </div>
+        )}
 
       </main>
       <aside className={`side-menu ${isMenuOpen ? 'open' : ''}`}>
         <ul>
-          <li onClick={() => handleMenuClick('form')}>LOGIN</li>
-          <li onClick={() => handleMenuClick('userList')}>USERLIST</li>
+          <li onClick={() => handleMenuClick('form')}>NHẬP THÔNG TIN</li>
+          <li onClick={() => handleMenuClick('userList')}>DANH SÁCH NGƯỜI DÙNG</li>
           <li onClick={() => handleMenuClick('userList2')}>DANH SÁCH NGƯỜI DÙNG</li> {/* Thêm mục mới */}
           <li onClick={() => handleMenuClick('PAGE4')}>MÔ PHỎNG CHUYỂN ĐỘNG</li>
+          <li onClick={() => handleMenuClick('CHART')}>KHÁM SỨC KHỎE</li>
         </ul>
       </aside>
     </div>

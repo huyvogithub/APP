@@ -99,7 +99,7 @@ const SmallFrame = () => {
                         .then(data => {
                             const apiDataDiv = document.getElementById('apiData');
 
-                            // Lấy giá trị của trường "ROLL_TAY_TRAI" từ dữ liệu JSON
+
                             const taytrai = data[0]?.public?.output?.jsonData?.taytrai_p;
                             const cangtaytrai = data[0]?.public?.output?.jsonData?.cangtaytrai_p;
                             const tayphai = data[0]?.public?.output?.jsonData?.tayphai_p;
