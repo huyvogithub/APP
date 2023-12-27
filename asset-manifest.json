@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/APP/static/css/main.b677c278.css",
-    "main.js": "/APP/static/js/main.8d1142d1.js",
-    "static/media/ytenenjpg.jpg": "/APP/static/media/ytenenjpg.2f1c1a06ab4a7fa4998b.jpg",
+    "main.css": "/APP/static/css/main.7f67fb30.chunk.css",
+    "main.js": "/APP/static/js/main.38076709.chunk.js",
+    "main.js.map": "/APP/static/js/main.38076709.chunk.js.map",
+    "runtime~main.js": "/APP/static/js/runtime~main.48f3dcc3.js",
+    "runtime~main.js.map": "/APP/static/js/runtime~main.48f3dcc3.js.map",
+    "static/js/2.58fb5d38.chunk.js": "/APP/static/js/2.58fb5d38.chunk.js",
+    "static/js/2.58fb5d38.chunk.js.map": "/APP/static/js/2.58fb5d38.chunk.js.map",
     "index.html": "/APP/index.html",
-    "main.b677c278.css.map": "/APP/static/css/main.b677c278.css.map",
-    "main.8d1142d1.js.map": "/APP/static/js/main.8d1142d1.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.b677c278.css",
-    "static/js/main.8d1142d1.js"
-  ]
+    "precache-manifest.3c648a56d8e1912475b1dfdc1944d303.js": "/APP/precache-manifest.3c648a56d8e1912475b1dfdc1944d303.js",
+    "service-worker.js": "/APP/service-worker.js",
+    "static/css/main.7f67fb30.chunk.css.map": "/APP/static/css/main.7f67fb30.chunk.css.map",
+    "static/media/MOHINH3D.glb": "/APP/static/media/MOHINH3D.91cf9f59.glb"
+  }
 }
