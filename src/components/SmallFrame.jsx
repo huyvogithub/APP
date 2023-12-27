@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import './ThreeDComponent.css'; // Import CSS file
+import './MOHINH3D.glb'; // Import CSS file
 const SmallFrame = () => {
     useEffect(() => {
         let camera, scene, renderer, Taytrai, Tayphai, Cotaytrai, Cotayphai;
@@ -68,8 +69,8 @@ const SmallFrame = () => {
                 // Chỉnh kích thước của model
                 //scene.scale.set(scaleFactor, scaleFactor, scaleFactor);
                 //model.scale.set(scaleFactor, scaleFactor, scaleFactor);
-                const degreeToRadian = Math.PI / 180;
-                async function layDuLieu() {
+                // const degreeToRadian = Math.PI / 180;
+                /*async function layDuLieu() {
                     try {
 
                         const response = await fetch('http://localhost:1880/bye2');
@@ -78,14 +79,14 @@ const SmallFrame = () => {
                         const TAYPHAI = parseFloat(data.TAIPHAI);
                         const CANGTAYTRAI = parseFloat(data.CANGTAYTRAI);
                         const CANGTAYPHAI = parseFloat(data.CANGTAYPHAI);
-                        /* Taytrai.rotation.z = TAYTRAI;
+                        Taytrai.rotation.z = TAYTRAI;
                          Tayphai.rotation.z = TAYPHAI;
                          Cotaytrai.rotation.z = CANGTAYTRAI;
-                         Cotayphai.rotation.z = CANGTAYPHAI;*/
+                         Cotayphai.rotation.z = CANGTAYPHAI;
                     } catch (error) {
                         console.error('Lỗi khi lấy dữ liệu:', error);
                     }
-                }
+                }*/
 
 
                 async function fetchData() {
@@ -97,7 +98,7 @@ const SmallFrame = () => {
                             return response.json();
                         })
                         .then(data => {
-                            const apiDataDiv = document.getElementById('apiData');
+                            //const apiDataDiv = document.getElementById('apiData');
 
 
                             const taytrai = data[0]?.public?.output?.jsonData?.taytrai_p;
@@ -120,7 +121,7 @@ const SmallFrame = () => {
 
 
 
-                setInterval(layDuLieu, 10);
+                //setInterval(layDuLieu, 10);
             });
 
             renderer = new THREE.WebGLRenderer({ antialias: true });

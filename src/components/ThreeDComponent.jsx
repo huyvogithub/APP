@@ -68,24 +68,24 @@ const SmallFrame = () => {
                 // Chỉnh kích thước của model
                 //scene.scale.set(scaleFactor, scaleFactor, scaleFactor);
                 //model.scale.set(scaleFactor, scaleFactor, scaleFactor);
-                const degreeToRadian = Math.PI / 180;
-                async function layDuLieu() {
-                    try {
-
-                        const response = await fetch('http://localhost:1880/bye2');
-                        const data = await response.json();
-                        const TAYTRAI = parseFloat(data.TAITRAI);
-                        const TAYPHAI = parseFloat(data.TAIPHAI);
-                        const CANGTAYTRAI = parseFloat(data.CANGTAYTRAI);
-                        const CANGTAYPHAI = parseFloat(data.CANGTAYPHAI);
-                        /* Taytrai.rotation.z = TAYTRAI;
-                         Tayphai.rotation.z = TAYPHAI;
-                         Cotaytrai.rotation.z = CANGTAYTRAI;
-                         Cotayphai.rotation.z = CANGTAYPHAI;*/
-                    } catch (error) {
-                        console.error('Lỗi khi lấy dữ liệu:', error);
-                    }
-                }
+                //const degreeToRadian = Math.PI / 180;
+                /* async function layDuLieu() {
+                      try {
+  
+                          const response = await fetch('http://localhost:1880/bye2');
+                          const data = await response.json();
+                          const TAYTRAI = parseFloat(data.TAITRAI);
+                          const TAYPHAI = parseFloat(data.TAIPHAI);
+                          const CANGTAYTRAI = parseFloat(data.CANGTAYTRAI);
+                          const CANGTAYPHAI = parseFloat(data.CANGTAYPHAI);
+                          Taytrai.rotation.z = TAYTRAI;
+                           Tayphai.rotation.z = TAYPHAI;
+                           Cotaytrai.rotation.z = CANGTAYTRAI;
+                           Cotayphai.rotation.z = CANGTAYPHAI;
+                      } catch (error) {
+                          console.error('Lỗi khi lấy dữ liệu:', error);
+                      }
+                  }*/
 
 
                 async function fetchData() {
@@ -97,7 +97,7 @@ const SmallFrame = () => {
                             return response.json();
                         })
                         .then(data => {
-                            const apiDataDiv = document.getElementById('apiData');
+                            //const apiDataDiv = document.getElementById('apiData');
 
 
                             const taytrai = data[0]?.public?.output?.jsonData?.taytrai_p;
@@ -115,12 +115,12 @@ const SmallFrame = () => {
                 }
 
                 fetchData();
-                setInterval(fetchData, 10);
+                setInterval(fetchData, 100);
 
 
 
 
-                setInterval(layDuLieu, 10);
+                // setInterval(layDuLieu, 10);
             });
 
             renderer = new THREE.WebGLRenderer({ antialias: true });
