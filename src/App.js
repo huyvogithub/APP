@@ -19,7 +19,6 @@ function App() {
     setCurrentPage(page);
     setIsMenuOpen(false); // Đóng menu khi chọn một trang
   };
-
   return (
     <div className="App">
       <header>
@@ -31,22 +30,18 @@ function App() {
         </div>
         <h1 className="app-title">ỨNG DỤNG QUẢN LÝ BỆNH NHÂN CỦA HUY</h1>
       </header>
-      <main className={isMenuOpen ? "menu-open" : ""}>
-        {currentPage === 'form' && (
-          <div className="form-container">
-            <Form />
-          </div>
-        )}
-        {currentPage === 'userList' && (
-          <div className="user-list-container">
-            <UserList />
-          </div>
-        )}
+      <main>
+        <div className={`form-container ${currentPage === 'form' ? 'visible' : 'hidden'}`}>
+          <Form />
+        </div>
+        <div className={`user-list-container ${currentPage === 'userList' ? 'visible' : 'hidden'}`}>
+          <UserList />
+        </div>
+        <div className={`threejs-container ${currentPage === 'userList2' ? 'visible' : 'hidden'}`}>
+          <GaussianGraph />
 
-        {currentPage === 'userList2' && (
-
-
-
+        </div>
+        {currentPage === 'PAGE4' && (
           <div className="user-list-container">
             <GaussianGraph />
             <SmallFrame />
@@ -54,22 +49,12 @@ function App() {
 
         )}
 
-        {currentPage === 'PAGE4' && (
-
-
-          <div className="user-list-container">
-            <ThreeDComponent />
-          </div>
-
-        )}
-
-
       </main>
       <aside className={`side-menu ${isMenuOpen ? 'open' : ''}`}>
         <ul>
           <li onClick={() => handleMenuClick('form')}>NHẬP THÔNG TIN</li>
           <li onClick={() => handleMenuClick('userList')}>DANH SÁCH NGƯỜI DÙNG</li>
-          <li onClick={() => handleMenuClick('userList2')}>KHÁM BỆNH</li> {/* Thêm mục mới */}
+          <li onClick={() => handleMenuClick('userList2')}>KHÁM BỆNH THÔNG SỐ</li> {/* Thêm mục mới */}
           <li onClick={() => handleMenuClick('PAGE4')}>MÔ PHỎNG CHUYỂN ĐỘNG</li>
         </ul>
       </aside>

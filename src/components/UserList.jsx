@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import MyImage from './benhnhan.jpg';
 const UserList = () => {
   const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -104,7 +104,7 @@ const UserList = () => {
       {selectedUser ? (
         <div style={{ border: '2px solid black', padding: '20px', marginBottom: '10px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div style={{ width: '200px', height: '200px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <img src={userData[selectedUser]?.avatar || 'https://picsum.photos/50/50'} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src={MyImage} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <div style={{ marginTop: '20px', textAlign: 'center' }}>
             <p><strong style={{ fontSize: '1.3em', fontWeight: 'bold', fontFamily: 'Times New Roman' }}>Tên người dùng:</strong> {userData[selectedUser]?.username}</p>
@@ -137,7 +137,7 @@ const UserList = () => {
                 onMouseLeave={handleUserLeave}
               >
                 <div style={{ width: '200px', height: '200px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                  <img src={userData[username]?.avatar || 'https://picsum.photos/50/50'} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={MyImage} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <p style={{ fontSize: '1.5em', fontWeight: 'bold', fontFamily: 'Times New Roman', marginTop: '10px' }}>Bệnh nhân số: {index + 1}</p>
                 <p><strong style={{ fontSize: '1.2em', fontWeight: 'bold', fontFamily: 'Times New Roman' }}>Tên người dùng:</strong> {userData[username]?.username}</p>
@@ -162,7 +162,7 @@ const UserList = () => {
                 onMouseLeave={handleUserLeave}
               >
                 <div style={{ width: '200px', height: '200px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                  <img src={userData[username]?.avatar || 'https://picsum.photos/50/50'} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={MyImage} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <p style={{ fontSize: '1.5em', fontWeight: 'bold', fontFamily: 'Times New Roman', marginTop: '10px' }}>Bệnh nhân số: {index + 1}</p>
                 <p><strong style={{ fontSize: '1.2em', fontWeight: 'bold', fontFamily: 'Times New Roman' }}>Tên người dùng:</strong> {userData[username]?.username}</p>

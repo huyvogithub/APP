@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import './ThreeDComponent.css'; // Import CSS file
-import './MOHINH3D.glb'; // Import CSS file
+import MyImage from './MOHINH3D.glb'; // Import CSS file
 const SmallFrame = () => {
     useEffect(() => {
         let camera, scene, renderer, Taytrai, Tayphai, Cotaytrai, Cotayphai;
@@ -37,7 +37,7 @@ const SmallFrame = () => {
             const scaleFactor = Math.min(maxContainerWidth / window.innerWidth, maxContainerHeight / window.innerHeight);
 
             const loader = new GLTFLoader();
-            loader.load('https://raw.githubusercontent.com/huyvogithub/stl/main/mohinh.glb', function (gltf) {
+            loader.load(MyImage, function (gltf) {
                 const model = gltf.scene;
                 console.log(model);
 
@@ -116,7 +116,7 @@ const SmallFrame = () => {
                 }
 
                 fetchData();
-                setInterval(fetchData, 10);
+                setInterval(fetchData, 100);
 
 
 
